@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Dancing+Script:wght@500&family=Domine:wght@500&family=Fira+Sans&family=Libre+Caslon+Text:ital@1&family=Lobster&family=Lora:wght@500&family=Merriweather:wght@300&family=PT+Serif&family=Playfair+Display:wght@500&family=Poppins&family=Roboto:wght@300;400;500&family=Satisfy&family=Share+Tech&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+.weather-card {
+  width: 100%;
+  max-width: 1700px;
+  background: linear-gradient(150deg, #87ceeb, #007786);
+  color: #fff;
+  padding: 25px 30px;
+  text-align: center;
+}
+.weather-search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weather-search input {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #080808;
+  padding: 10px 25px;
+  height: 60px;
+  border-radius: 30px;
+  flex: 1;
+  margin-right: 16px;
+  font-size: 18px;
+}
+.weather-search button {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.weather-search button:hover {
+  border: 0;
+  outline: 0;
+  background: #00b4db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.weather-search button i {
+  font-size: 20px;
+  color: #00b4db;
+}
+.weather-search button i:hover {
+  font-weight: bold;
+  color: #ebfffc;
+  background-color: #00b4db;
+}
+.weather-icon {
+  width: 200px;
+  margin-top: 30px;
+}
+.weather h1 {
+  font-size: 80px;
+  font-weight: 700;
+}
+.weather h2 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: -10px;
+}
+.weather-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 60px;
+  margin-top: 10px;
+}
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.col #humidity, #wind {
+  width: 80px;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+.humidity, .wind-speed, .visibility-number, .aqi-number {
+  font-size: 30px;
+}
+.humidity-rate {
+  margin-right: 50px;
+}
+.error-message {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+  display: none;
+}
