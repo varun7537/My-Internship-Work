@@ -1,155 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="icon" type="image/x-icon" href="images/logo-main-removebg-preview.png">
-        <title>Netflix India - Watch TV Shows Online, Watch Movies Online</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="mediaquery.css">
-        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-        
-        <script src="https://kit.fontawesome.com/bc3a1796c2.js" crossorigin="anonymous"></script>
-        
-        <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/870/870910.ico'/" /> 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
-    </head>
-    <body>
-        <div class="navbar">
-            <li class="logo"><img src="images/logo-removebg-preview.png" height="150" width="350"></li>
-            <!--<li class="translate-language">
-            <select>
-                <option>English</option>
-                <option>हिन्दी</option>
-            </select></li>-->
-            <li class="buttons">Sign In</li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone 2025</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-left">
+            <div class="logo">NETFLIX</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#series">TV Shows</a></li>
+                <li><a href="#movies">Movies</a></li>
+                <li><a href="#new">New & Popular</a></li>
+                <li><a href="#list">My List</a></li>
+            </ul>
         </div>
-        <div class="main" style="background-image: url('images/background.png');">
-            <div class="area">
-                <h1><b>Laughter. Tears. Thrills. Find it all on Netflix.</b></h1>
-                <h3>Endless entertainment starts at just ₹149. Cancel anytime.</h3>
-                <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+        <div class="nav-right">
+            <div class="search-icon">🔍</div>
+            <div class="notifications">🔔</div>
+            <div class="profile">A</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Quantum Nexus</h1>
+            <p class="hero-description">
+                When a brilliant physicist discovers a portal to parallel dimensions, she must race against time to prevent a catastrophic collision of realities. A mind-bending sci-fi thriller that redefines the boundaries of existence.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-play" onclick="playContent()">▶ Play</button>
+                <button class="btn btn-info" onclick="openModal('hero')">ℹ More Info</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <div class="content-section">
+        <div class="row-header">
+            <span>Trending Now</span>
+            <span class="explore-all">Explore All ›</span>
+        </div>
+        <div class="content-row" id="trending"></div>
+    </div>
+
+    <div class="content-section">
+        <div class="row-header">
+            <span>Top 10 in Your Country</span>
+            <span class="explore-all">Explore All ›</span>
+        </div>
+        <div class="content-row" id="top10"></div>
+    </div>
+
+    <div class="content-section">
+        <div class="row-header">
+            <span>New Releases</span>
+            <span class="explore-all">Explore All ›</span>
+        </div>
+        <div class="content-row" id="newReleases"></div>
+    </div>
+
+    <div class="content-section">
+        <div class="row-header">
+            <span>Continue Watching</span>
+            <span class="explore-all">Explore All ›</span>
+        </div>
+        <div class="content-row" id="continue"></div>
+    </div>
+
+    <div class="content-section">
+        <div class="row-header">
+            <span>Award-Winning Films</span>
+            <span class="explore-all">Explore All ›</span>
+        </div>
+        <div class="content-row" id="awards"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-title" id="modalTitle">Title</h2>
+                <div class="modal-meta">
+                    <span id="modalMatch">95% Match</span>
+                    <span id="modalYear">2025</span>
+                    <span id="modalRating">TV-MA</span>
+                    <span id="modalDuration">2h 14m</span>
+                </div>
+                <p class="modal-description" id="modalDescription">Description</p>
+                <div class="modal-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Cast:</span>
+                        <span class="detail-value" id="modalCast">Cast info</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Genres:</span>
+                        <span class="detail-value" id="modalGenres">Genres info</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Director:</span>
+                        <span class="detail-value" id="modalDirector">Director info</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Audio Description</a>
+                <a href="#">Help Center</a>
+                <a href="#">Gift Cards</a>
+                <a href="#">Media Center</a>
+                <a href="#">Investor Relations</a>
+                <a href="#">Jobs</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy</a>
+                <a href="#">Legal Notices</a>
+                <a href="#">Cookie Preferences</a>
+                <a href="#">Corporate Information</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-bottom">
+                © 2025 Netflix Clone. This is a demonstration project.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample content data
+        const contentData = {
+            trending: [
+                { title: "Echoes of Tomorrow", match: "92%", year: "2025", duration: "1 Season", genre: "Sci-Fi Drama" },
+                { title: "The Last Heist", match: "88%", year: "2025", duration: "2h 8m", genre: "Action Thriller" },
+                { title: "Moonlit Tales", match: "95%", year: "2025", duration: "1 Season", genre: "Fantasy" },
+                { title: "City of Shadows", match: "89%", year: "2024", duration: "1h 54m", genre: "Mystery" },
+                { title: "Beyond the Horizon", match: "91%", year: "2025", duration: "2 Seasons", genre: "Adventure" },
+                { title: "Silent Echo", match: "87%", year: "2025", duration: "1h 42m", genre: "Horror" }
+            ],
+            top10: [
+                { title: "Quantum Nexus", match: "96%", year: "2025", duration: "2h 14m", genre: "Sci-Fi Thriller" },
+                { title: "The Architect", match: "94%", year: "2025", duration: "2 Seasons", genre: "Drama" },
+                { title: "Midnight Runner", match: "93%", year: "2025", duration: "1h 58m", genre: "Action" },
+                { title: "Whispers in Time", match: "90%", year: "2024", duration: "1 Season", genre: "Mystery" },
+                { title: "Rise of Legends", match: "89%", year: "2025", duration: "2h 22m", genre: "Fantasy Epic" },
+                { title: "Code Red", match: "88%", year: "2025", duration: "1 Season", genre: "Thriller" }
+            ],
+            newReleases: [
+                { title: "Starborn Chronicles", match: "91%", year: "2025", duration: "1 Season", genre: "Sci-Fi" },
+                { title: "The Forgotten Path", match: "87%", year: "2025", duration: "1h 46m", genre: "Adventure" },
+                { title: "Digital Dreams", match: "90%", year: "2025", duration: "1 Season", genre: "Tech Drama" },
+                { title: "Ocean's Depth", match: "85%", year: "2025", duration: "2h 1m", genre: "Documentary" },
+                { title: "Neon Nights", match: "92%", year: "2025", duration: "1h 55m", genre: "Crime Drama" },
+                { title: "The Wanderer", match: "88%", year: "2025", duration: "1 Season", genre: "Fantasy" }
+            ],
+            continue: [
+                { title: "Breaking Boundaries", match: "94%", year: "2024", duration: "2 Seasons", genre: "Drama" },
+                { title: "Lost Frequencies", match: "89%", year: "2024", duration: "1 Season", genre: "Mystery" },
+                { title: "Paradise Protocol", match: "91%", year: "2024", duration: "1h 52m", genre: "Thriller" },
+                { title: "The Inheritance", match: "87%", year: "2024", duration: "1 Season", genre: "Drama" },
+                { title: "Velocity", match: "90%", year: "2024", duration: "2h 5m", genre: "Action" },
+                { title: "Echoes", match: "93%", year: "2024", duration: "1 Season", genre: "Psychological" }
+            ],
+            awards: [
+                { title: "The Masterpiece", match: "97%", year: "2024", duration: "2h 28m", genre: "Drama" },
+                { title: "Resilience", match: "96%", year: "2024", duration: "2h 15m", genre: "Biography" },
+                { title: "Through the Lens", match: "95%", year: "2024", duration: "1h 58m", genre: "Documentary" },
+                { title: "The Performance", match: "94%", year: "2024", duration: "2h 10m", genre: "Drama" },
+                { title: "Voices Unheard", match: "93%", year: "2024", duration: "1h 45m", genre: "Documentary" },
+                { title: "Legacy", match: "95%", year: "2024", duration: "2h 32m", genre: "Epic Drama" }
+            ]
+        };
+
+        // Generate color for cards
+        function generateColor(index) {
+            const colors = [
+                'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
+            ];
+            return colors[index % colors.length];
+        }
+
+        // Create content card
+        function createCard(item, index, isTop10 = false) {
+            const card = document.createElement('div');
+            card.className = 'content-card';
+            card.style.background = generateColor(index);
+            card.onclick = () => openModal('content', item);
+
+            if (isTop10) {
+                const badge = document.createElement('div');
+                badge.className = 'top10-badge';
+                badge.textContent = index + 1;
+                card.appendChild(badge);
+            }
+
+            const info = document.createElement('div');
+            info.className = 'card-info';
+            info.innerHTML = `
+                <div class="card-title">${item.title}</div>
+                <div class="card-meta">
+                    <span>${item.match}</span>
+                    <span>${item.year}</span>
+                    <span>${item.duration}</span>
+                </div>
+            `;
+            card.appendChild(info);
+
+            return card;
+        }
+
+        // Populate content rows
+        function populateRow(rowId, data, isTop10 = false) {
+            const row = document.getElementById(rowId);
+            data.forEach((item, index) => {
+                row.appendChild(createCard(item, index, isTop10));
+            });
+        }
+
+        // Initialize content
+        populateRow('trending', contentData.trending);
+        populateRow('top10', contentData.top10, true);
+        populateRow('newReleases', contentData.newReleases);
+        populateRow('continue', contentData.continue);
+        populateRow('awards', contentData.awards);
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Modal functions
+        function openModal(type, item) {
+            const modal = document.getElementById('modal');
             
-                <div class="search">
-                    <input type="text" class="box" placeholder=" Email address ">
-                    <span class="try">
-                        Get Started <i class="fas fa-chevron-right"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="container1">
-            <div class="text">
-                <h1>Enjoy on your TV.</h1>
-                <p>
-                    Watch on smart TVs, PlayStation, Xbox, Chromecast,<br>
-                    Apple TV, Blu-ray players and more.
-                </p>
-            </div>
-            <div class="image">
-                <img src="images/image1.gif">
-            </div>
-        </div>
-        <div class="container1">
-            <div class="image">
-                <img src="images/image2.gif">
-            </div>
-            <div class="text">
-                <h1>Download your shows to watch offline</h1>
-                <p>Save your favourites easily and always have something to watch.</p>
-            </div>
-        </div>
-        <div class="container1">
-            <div class="text">
-                <h1>Watch everywhere.</h1>
-                <p>Stream unlimited movies and TV shows on your<br> 
-                    phone, tablet, laptop, and TV.</p>
-            </div>
-            <div class="image">
-                <img src="images/image3.png">
-            </div>
-        </div>
-        <div class="container1">
-            <div class="image4">
-                <img src="images/children.png" alt="children" height="700" width="700">
-            </div>
-            <div class="text4">
-                <h1>Create profiles for kids</h1>
-                <p>Send children on adventures with their favourite <br> characters in a space made just for them—free with <br> your membership.</p>
-            </div>
-        </div>
-        <div class="question">
-            <h1>Frequently Asked Questions</h1>
-            <div class="quest">
-                <div class="textbox">What is Netflix?</div>
-                <i class="fa fa-plus"></i>
-            </div>
-            <div class="quest">
-                <div class="textbox">How much does Netflix cost?</div>
-                <i class="fa fa-plus"></i>
-            </div>             
-            <div class="quest">
-                <div class="textbox">Where can I watch?</div>
-                <i class="fa fa-plus"></i>
-            </div>                 
-            <div class="quest">
-                <div class="textbox">How do I cancel?</div>
-                <i class="fa fa-plus"></i>
-            </div>               
-            <div class="quest">
-                <div class="textbox">What can I watch on Netflix??</div>
-                <i class="fa fa-plus"></i>
-            </div>
-            <div class="quest">
-                <div class="textbox">Is Netflix good for kids?</div>
-                <i class="fa fa-plus"></i>                   
-            </div>    
-            <h4>Ready to watch? Enter your email to create or restart your membership.</h4>
-            <div class="search1">
-                <input type="text" class="box1" placeholder="Email address">
-                <span class="try1">Get Started <i class="fas fa-chevron-right"></i></span>
-            </div>      
-        </div>
-        <div class="footer">
-            <div class="footercon">
-                <div class="flex1">
-                    <h5>Questions? Call <span>000-800-919-1694</span></h5>
-                </div>
-                <ul class="list1">
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Investor Relation</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Speed Test</a></li>
-                    <li>
-                        <a href="#">
-                            <select>
-                                <option>English</option>
-                                <option>हिन्दी</option>
-                            </select>
-                        </a>
-                    </li>
-                    <li><a href="#">Netflix India</a></li>
-                </ul>
-                <ul class="list1">
-                    <li><a href="#">Help Centre</a></li>
-                    <li><a href="#">Jobs</a></li>
-                    <li><a href="#">Cookie Preferences</a></li>
-                    <li><a href="#">Legal Notices</a></li>
-                </ul>
-                <ul class="list1">
-                    <li><a href="#">Account</a></li>
-                    <li><a href="#">Ways to Watch</a></li>
-                    <li><a href="#">Corporate Information</a></li>
-                    <li><a href="#">Only on Netflix</a></li>
-                </ul>
-                <ul class="list1">
-                    <li><a href="#">Media Centre</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </body>
+            if (type === 'hero') {
+                document.getElementById('modalTitle').textContent = 'Quantum Nexus';
+                document.getElementById('modalMatch').textContent = '96% Match';
+                document.getElementById('modalYear').textContent = '2025';
+                document.getElementById('modalRating').textContent = 'TV-MA';
+                document.getElementById('modalDuration').textContent = '2h 14m';
+                document.getElementById('modalDescription').textContent = 'When a brilliant physicist discovers a portal to parallel dimensions, she must race against time to prevent a catastrophic collision of realities. A mind-bending sci-fi thriller that redefines the boundaries of existence.';
+                document.getElementById('modalCast').textContent = 'Emma Stone, Oscar Isaac, Michael B. Jordan';
+                document.getElementById('modalGenres').textContent = 'Sci-Fi Thriller, Mystery, Adventure';
+                document.getElementById('modalDirector').textContent = 'Denis Villeneuve';
+            } else {
+                document.getElementById('modalTitle').textContent = item.title;
+                document.getElementById('modalMatch').textContent = item.match;
+                document.getElementById('modalYear').textContent = item.year;
+                document.getElementById('modalRating').textContent = 'TV-MA';
+                document.getElementById('modalDuration').textContent = item.duration;
+                document.getElementById('modalDescription').textContent = `An exciting ${item.genre.toLowerCase()} that captivates audiences with its compelling narrative and stunning visuals. This title has become one of the most watched on the platform.`;
+                document.getElementById('modalCast').textContent = 'Award-winning ensemble cast';
+                document.getElementById('modalGenres').textContent = item.genre;
+                document.getElementById('modalDirector').textContent = 'Acclaimed Director';
+            }
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function playContent() {
+            alert('▶ Playing content... (Demo mode)');
+        }
+
+        // Close modal on outside click
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
 </html>
